@@ -5,34 +5,38 @@ import React from 'react'
 import SocialIcons from '../../elements/socialIcons'
 
 const TopBarWrapper = styled.div`
-  ${tw`container sm:hidden lg:flex-row lg:flex justify-between py-1`}
+  ${tw`container lg:flex-row flex-col flex justify-between py-1`}
   background: #eabd00;
 `
 
 const Headline = styled.h4`
-${tw ` inline px-4 font-medium font-robotoMedium`}
+${tw ` inline px-2 lg:px-4 font-medium text-xs lg:text-sm font-robotoMedium`}
 `
 
 const Divider = styled.span`
-  ${tw `pl-2 pr-2`}
+  ${tw `px-1 lg:px-2`}
   border-right: 2px solid #000;
 `
 
 const TopBar = () => (
   <>
     <TopBarWrapper>
-      <div className="top-bar-text p-0">
-        <Headline>
-          29 Years of Legacy
-          <Divider />
-        </Headline>
-        <Headline>
-          NBA Accredited Branches (BT, CSE & ME)
-          <Divider />
-        </Headline>
-        <Headline>NAAC Accredited with Grade 'A'</Headline>
+      <div className="lg:my-auto lg:mx-0 flex flex-row  ml-4 lg:ml-0 flex-wrap lg:p-0">
+        <div className="my-1 lg:m-0">
+          <Headline>
+            NBA Accredited Branches (BT, CSE & ME)
+            <Divider />
+          </Headline>
+          <Headline>
+            29 Years of Legacy
+            <Divider />
+          </Headline>
+        </div>
+        <div className="my-1 lg:my-0">
+          <Headline>NAAC Accredited with Grade 'A'</Headline>
+        </div>
       </div>
-      <div className="top-bar-social-icons flex">
+      <div className="top-bar-social-icons hidden lg:flex">
         <SocialIcons/>
       </div>
     </TopBarWrapper>
