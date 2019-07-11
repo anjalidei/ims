@@ -38,7 +38,7 @@ export default function Footer(props) {
 `
 
     return(
-        <footer className="w-full bg-grey-footer">
+        <footer className="w-full bg-grey-footer footer-desktop">
             <div id="courses" className="w-full p-6">
                 <div className="w-full mt-2 mb-6 md:pr-6 lg:pr-2 flex-row flex-wrap flex">
                     <div className="fit-content my-2">

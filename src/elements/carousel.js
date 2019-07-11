@@ -31,7 +31,7 @@ export default function MultipleItems(props) {
     dots: false,
     infinite: true,
     speed: 700,
-    autoplaySpeed: 1300,
+    autoplaySpeed: 1400,
     autoplay: true,
     variableWidth: true,
   }

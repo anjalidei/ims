@@ -101,7 +101,9 @@ const DropDownWrapper = styled.div`
 
 const toggleDropDown = (name) =>{
   let el = document.getElementById(name);
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  if(typeof(window) !== 'undefined' && window.innerWidth > 775){
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
 }
 
 const menuToggle = () =>{
@@ -159,7 +161,7 @@ const NavBar = () => (
           </ListItem>
         </ListWrapper>
       </ListDiv>
-      <DropDownWrapper id="about-us">
+      <DropDownWrapper id="about-us" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-4">
             <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="400" content="IMS Society" padding="1rem"/>
@@ -177,7 +179,7 @@ const NavBar = () => (
           </div>
         </div>
       </DropDownWrapper>
-      <DropDownWrapper id="academics">
+      <DropDownWrapper id="academics" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-4">
             <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="400" content="Course" padding="1rem"/>
@@ -192,7 +194,7 @@ const NavBar = () => (
           </div>
         </div>
       </DropDownWrapper>
-      <DropDownWrapper id="department">
+      <DropDownWrapper id="department" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-8">
             <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="600" content="B.Tech" padding="1rem"/>

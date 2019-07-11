@@ -10,7 +10,7 @@ const TopBarWrapper = styled.div`
 `
 
 const Headline = styled.h4`
-${tw ` inline px-2 lg:px-4 font-medium text-xs lg:text-sm font-robotoMedium`}
+${tw ` inline px-2 lg:px-4 block lg:inline my-2 font-medium text-xs lg:text-sm font-robotoMedium`}
 `
 
 const Divider = styled.span`
@@ -31,8 +31,6 @@ const TopBar = () => (
             29 Years of Legacy
             <Divider />
           </Headline>
-        </div>
-        <div className="my-1 lg:my-0">
           <Headline>NAAC Accredited with Grade 'A'</Headline>
         </div>
       </div>

@@ -117,7 +117,13 @@ header .show-navigation{
     display: flex;
 }
 
-@media screen and (min-width: 365px) and (max-width: 765px){
+@media screen and (max-width: 765px){
+    .homePage .footer-mobile{
+        display: block;
+    }
+    .homePage .footer-desktop{
+        display: none;
+    }
     .navBarOverlay{
         opacity: 1;
     }
@@ -139,6 +145,12 @@ header .show-navigation{
 @media screen and (min-width: 765px){
     header .hide-navigation{
         display: flex;
+    }
+    .homePage .footer-mobile{
+        display: none;
+    }
+    .homePage .footer-desktop{
+        display: block;
     }
 
 }
