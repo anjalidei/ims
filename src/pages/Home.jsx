@@ -98,10 +98,15 @@ export default class Home extends React.Component {
     }
   }
 
-  getScreenDim = () =>{
-    var width = window.innerWidth
-      || document.documentElement.clientWidth
-      || document.body.clientWidth;
+  getScreenDim = () => {
+    var width;
+    if(typeof(window) !== 'undefined' && typeof(document) !== 'undefined'){
+      width = window.innerWidth || document.documentElement.clientWidth
+          || document.body.clientWidth;
+    }
+    else{
+      width = 905;
+    }
 
     // To get the current window width for responsive design.
     return(width);
