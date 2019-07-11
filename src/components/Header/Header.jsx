@@ -7,10 +7,11 @@ import NavBar from './navBar'
 
 export default function Header(props) {
   const HeaderWrapper = styled.header`
-    ${tw`container w-full fixed `}
+    ${tw`container  fixed `}
     top: 0;
     left: 0;
     z-index: 1001;
+    width: 100vw;
   `
   const fadeIn = keyframes`
   from {

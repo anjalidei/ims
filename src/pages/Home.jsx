@@ -98,23 +98,8 @@ export default class Home extends React.Component {
     }
   }
 
-  getScreenDim = () => {
-    var width;
-    if(typeof(window) !== 'undefined' && typeof(document) !== 'undefined'){
-      width = window.innerWidth || document.documentElement.clientWidth
-          || document.body.clientWidth;
-    }
-    else{
-      width = 905;
-    }
-
-    // To get the current window width for responsive design.
-    return(width);
-  }
-
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', this.getScreenDim);
   }
 
   handleScroll = () => {
@@ -185,7 +170,7 @@ export default class Home extends React.Component {
               </ContentDiv>
             </SectionWrapper>
           </div>
-          <div id="parallaxContainer" className="secondIntroDiv">
+          <div id="parallaxContainer" className="secondIntroDiv overflow-hidden lg:overflow-auto">
             <SectionWrapper className="banner"  id="mobileIntroSection">
               <ContentDiv>
                 <CardRow className="hide-on-large">
@@ -342,41 +327,41 @@ export default class Home extends React.Component {
                 />
               </div>
               <div className="flex lg:flex-row sm:flex-col lg:m-6 sm:m-0">
-                <div className="w-fit-content w-1/3 sm:my-4 m-auto">
+                <div className="w-fit-content w-full lg:w-1/3 sm:my-4 m-auto">
                   <Headings
                     wrapperClassName="centerText"
                     width="fit-content"
                     padding="0 10px"
                     margin="0 auto"
                     tag="span"
-                    size="4rem"
+                    size="3rem"
                     color="#fff"
                     font="Roboto-Bold"
                     content="355"
                   />
                   <div className="font-sans text-lg text-center text-blue-site font-bold">Companies Visited</div>
                 </div>
-                <div className="w-fit-content sm:my-4 w-1/3 m-auto">
+                <div className="w-fit-content sm:my-4 w-full lg:w-1/3 m-auto">
                   <Headings
                     wrapperClassName="centerText"
                     width="fit-content"
                     padding="0 10px"
                     tag="span"
                     margin="0 auto"
-                    size="4rem"
+                    size="3rem"
                     font="Roboto-Bold"
                     color="#fff"
                     content="1708"
                   />
                   <div className="font-robotoBold text-lg text-center text-blue-site font-bold">Total Offers</div>
                 </div>
-                <div className="w-fit-content sm:my-4 w-1/3 m-auto">
+                <div className="w-fit-content sm:my-4 w-full lg:w-1/3 m-auto">
                   <Headings
                     wrapperClassName="centerText"
                     width="fit-content"
                     padding="0 10px"
                     tag="span"
-                    size="4rem"
+                    size="3rem"
                     color="#fff"
                     font="Roboto-Bold"
                     margin="0 auto"
@@ -384,17 +369,17 @@ export default class Home extends React.Component {
                   />
                   <div className="font-robotoBold text-lg text-center text-blue-site font-bold">Total Placements</div>
                 </div>
-                <div className="w-fit-content sm:my-4 w-1/3 m-auto">
+                <div className="w-fit-content sm:my-4 w-full lg:w-1/3 m-auto">
                   <Headings
                     wrapperClassName="centerText"
                     width="fit-content"
                     padding="0 10px"
                     tag="span"
                     margin="0 auto"
-                    size="4rem"
+                    size="3rem"
                     font="Roboto-Bold"
                     color="#fff"
-                    content="70.63%"
+                    content="70.63"
                   />
                   <div className="font-robotoBold text-lg text-blue-site font-bold text-center">
                     Placement Percentage
@@ -402,7 +387,7 @@ export default class Home extends React.Component {
                 </div>
               </div>
             </section>
-            <section id="majorRecruiters" className="major-recruiters w-full bg-white p-6">
+            <section id="majorRecruiters" className="major-recruiters  w-full bg-white p-6">
               <Headings
                 underlineColor="#eac600"
                 underlineTop="54px"
@@ -964,7 +949,7 @@ export default class Home extends React.Component {
                 underlineColor="#0d266c"
                 underlineTop="54px"
                 padding="1rem 0"
-                size="2rem"
+                titleClassName="text-lg lg:text-xl"
                 content="CELEBRITIES @ IMSEC"
               />
               <div className="flex lg:flex-row sm:flex-col pt-4 pb-4">
@@ -999,9 +984,8 @@ export default class Home extends React.Component {
                 height="26px"
               />
             </section>
-            { this.getScreenDim() >900 ?
-            <Footer/>  :
-              <MobileFooter/> }
+            <Footer />
+            <MobileFooter />
           </div>
         </PageRow>
       </>

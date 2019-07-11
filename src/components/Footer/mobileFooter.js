@@ -50,7 +50,7 @@ export default function MobileFooter(props) {
 `
 
     return(
-        <footer className="w-full bg-grey-footer">
+        <footer className="w-full bg-grey-footer footer-mobile">
         <div className="sm:flex justify-between">
         <Headings
     wrapperClassName="my-auto"
@@ -66,7 +66,7 @@ export default function MobileFooter(props) {
         <AddBtn onClick={()=>{footerToggle('courses')}}>+</AddBtn>
     </div>
     </div>
-    <div id="courses" className="w-full p-2 hidden flex ml-4">
+    <div id="courses" className="w-full p-2 flex ml-4">
         <div className="w-full mt-2 mb-6 md:pr-6 lg:pr-2 sm:flex-col lg:flex-row lg:flex-wrap flex">
         <div className="fit-content my-2">
         <Headline>
