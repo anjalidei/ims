@@ -6,7 +6,8 @@ import { width as twWidth } from '../../tailwind'
 import { hidden } from '../css/utils'
 
 const Wrapper = styled.svg`
-  ${tw`absolute`};
+  ${tw``};
+  position: ${props => props.position};
   stroke: currentColor;
   ${props => props.hiddenMobile && hidden};
   color: ${props => props.stroke};
@@ -42,6 +43,14 @@ const icons = {
       </>
     ),
     viewBox: '0 0 30 42',
+  },
+  arrowDown: {
+    shape: (
+        <>
+          <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/>
+        </>
+    ),
+    viewBox: '0 0 129 129',
   },
   upDown: {
     shape: (
@@ -79,8 +88,9 @@ const icons = {
   },
 }
 
-const SVG = ({ stroke, fill, width, icon, left, top, hiddenMobile }) => (
+const SVG = ({ stroke, fill, width, icon, left, top, position,hiddenMobile }) => (
   <Wrapper
+      position={position}
     viewBox={icons[icon].viewBox}
     stroke={stroke}
     fill={fill}
@@ -102,6 +112,7 @@ SVG.propTypes = {
   icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
   left: PropTypes.string,
   top: PropTypes.string,
+  position: PropTypes.string,
   hiddenMobile: PropTypes.bool,
 }
 
@@ -111,5 +122,6 @@ SVG.defaultProps = {
   fill: 'none',
   left: '0%',
   top: '0%',
+  position: 'static',
   hiddenMobile: false,
 }

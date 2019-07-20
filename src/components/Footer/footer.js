@@ -11,7 +11,7 @@ import MailIcon from "../../images/mail-icon.svg";
 export default function Footer(props) {
 
     const Divider = styled.span`
-  ${tw`pl-2 pr-2 sm:hidden lg:inline`}
+  ${tw`pl-2 pr-2 hidden lg:inline`}
   border-right: 2px solid #0d266c;
 `
 
@@ -39,7 +39,7 @@ export default function Footer(props) {
 
     return(
         <footer className="w-full bg-grey-footer footer-desktop">
-            <div id="courses" className="w-full p-6">
+            <div className="w-full p-6">
                 <div className="w-full mt-2 mb-6 md:pr-6 lg:pr-2 flex-row flex-wrap flex">
                     <div className="fit-content my-2">
                         <Headline>

@@ -10,7 +10,6 @@ const rotate = keyframes`
   }
 `
 
-
 const wave = keyframes`
   0% {
     d: path("M 0 100 Q 250 50 400 200 Q 550 350 800 300 L 800 0 L 0 0 L 0 100 Z");
@@ -65,3 +64,4 @@ export const waveAnimation = length => css`
 export const rotateAnimation = length => css`
   animation: ${rotate} ${length} linear infinite;
 `
+

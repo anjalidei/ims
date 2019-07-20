@@ -13,7 +13,7 @@ export default function ImgWrapper(props) {
     border-radius: ${props.borderRadius};
     background-color: transparent;
     
-    @media screen and (min-width: 365px) and (max-width: 900px){
+    @media screen and (min-width: 320px) and (max-width: 900px){
       width: ${props.mobileWidth};
     }
   `

@@ -183,7 +183,7 @@ module.exports = {
     sm: '375px',
     md: '600px',
     lg: '900px',
-    xl: '1200px',
+    xl: '1280px',
     xxl: '1600px',
   },
 
@@ -226,6 +226,7 @@ module.exports = {
     robotoRegular: ['Roboto-Regular'],
     robotoBlack: ['Roboto-Black'],
     robotoBold: ['Roboto-Bold'],
+    raanana: ['Raanana'],
     rockwell: ['Rockwell'],
     marion: ['Marion'],
     serif: [
@@ -264,6 +265,7 @@ module.exports = {
   */
 
   textSizes: {
+    normal: 'normal',
     xs: '.75rem', // 12px
     sm: '.875rem', // 14px
     base: '1rem', // 16px
@@ -455,6 +457,7 @@ module.exports = {
   */
 
   width: {
+    fit: 'fit-content',
     auto: 'auto',
     px: '1px',
     '1': '0.25rem',

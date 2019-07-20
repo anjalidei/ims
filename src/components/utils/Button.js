@@ -14,11 +14,11 @@ const Button = (props) => {
     border-radius: 19px;
     outline: none;
     border: 1px solid ${props.borderColor};
-    background-color: white;
+    background-color: ${ props.bgColor ? props.bgColor : 'white' };
   `
 
   return(
-    <Btn>{props.content}</Btn>
+    <Btn className={props.btnClass}>{props.content}</Btn>
   )
 }
 export default Button
