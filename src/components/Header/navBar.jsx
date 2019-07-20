@@ -11,15 +11,17 @@ const Nav = styled.nav`
   text-decoration: none;
 `
 const ListItem = styled.li`
-  ${tw`container list-none sm:w-full sm:text-center lg:text-left sm:py-4 relative no-underline inline pl-8 `}
+  ${tw`list-none w-full text-right  lg:mr-0 lg:text-left py-4 lg:py-0 relative no-underline inline`}
+  margin-left: 3vw;
   
-  @media screen and (min-width: 375px) and (max-width: 765px){
+  @media screen and (max-width: 765px){
     background: #0d266c;
+    margin-left: 0;
   }
 `
 
 const NavLink = styled.a`
-  ${tw`font-robotoMedium sm:text-2xl lg:text-xl inline px-8 text-white`}
+  ${tw`font-robotoMedium pr-4 lg:pr-0 text-2xl lg:text-lg xl:text-xl inline text-white`}
   cursor: pointer;
   font-weight: 500;
   text-transform: uppercase;
@@ -29,26 +31,34 @@ const NavLink = styled.a`
    content:'';
    opacity: 0;
    position: absolute;
-   top: 45px;
-   left: 62px;
+   top: 25px;
+   left: 0;
    width: 50px;
    height: 1px;
    background: #eabd00;
   }
   
+  @media screen and (max-width: 765px){ 
+    ::before{
+      display: none;
+    }
+  }
   &:active::before, &:hover::before, &:visited::before{
   opacity: 1;
   }
 `
 const ListDiv = styled.div`
-  ${tw `container flex self-center relative hidden lg:block pl-10 w-full`} 
+  ${tw `flex self-center absolute lg:static hidden lg:block w-full`} 
+  margin-left: 2rem;
+  height: fit-content;
   
-  @media screen and (min-width: 375px) and (max-width: 765px){
-  top: 3.6rem;
+  @media screen and (max-width: 765px){
+  top: 4rem;
+  margin-left: 0;
   }
 `
 const ListWrapper = styled.u`
-  ${tw`sm:flex-col lg:flex-row flex content-between sm:justify-center w-full self-end`}
+  ${tw`flex-col lg:block flex w-full`}
   text-decoration: none;
 `
 
@@ -82,7 +92,7 @@ const ImageContainer = styled.img`
 const ImageWrapper = styled.div`
     ${tw`overflow-hidden`}
     width: 22vw;
-    height: 30vw;
+    height: 27vw;
     background: grey;
     
 `
@@ -110,12 +120,12 @@ const menuToggle = () =>{
   let navBarList = document.getElementById("nav-bar-list");
 
   if(navBarList.classList.contains('show-navigation')){
-    navBarList.classList.add('hide-navigation');
-    navBarList.classList.remove('show-navigation');
+    navBarList.classList.add('hide-navigation','slide-in');
+    navBarList.classList.remove('show-navigation','slide-out');
   }
   else{
-    navBarList.classList.remove('hide-navigation');
-    navBarList.classList.add('show-navigation');
+    navBarList.classList.remove('hide-navigation','slide-in');
+    navBarList.classList.add('show-navigation','slide-out');
   }
 };
 
@@ -124,7 +134,7 @@ const NavBar = () => (
   <>
     <Nav>
       <LogoWrapper>
-        <Link to="/Home">
+        <Link to="/Home" >
           <ImageContainer src={logo} alt="logo" />
         </Link>
       </LogoWrapper>
@@ -149,7 +159,12 @@ const NavBar = () => (
             }}>Academics</NavLink>
           </ListItem>
           <ListItem>
-            <NavLink>R&D</NavLink>
+            <NavLink onClick={()=>{
+              toggleDropDown('academics');
+            }}>Achievements</NavLink>
+          </ListItem>
+          <ListItem>
+            <NavLink>Placements</NavLink>
           </ListItem>
           <ListItem>
             <NavLink onClick={()=>{
@@ -164,13 +179,13 @@ const NavBar = () => (
       <DropDownWrapper id="about-us" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-4">
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="400" content="IMS Society" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" fontWeight="400" width="16vw" content="Executive Council" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="Governing Council" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="The Chairman" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="The Director" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="Mission & Vision" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="Location" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0"  titleClassName="text-lg xl:text-2xl" width="16vw" fontWeight="400" content="IMS Society" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" fontWeight="400" titleClassName="text-lg xl:text-2xl" width="16vw" content="Executive Council" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="16vw" titleClassName="text-lg xl:text-2xl" content="Governing Council" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="16vw" content="The Chairman" titleClassName="text-lg xl:text-2xl" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="16vw" content="The Director" titleClassName="text-lg xl:text-2xl" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="16vw" titleClassName="text-lg xl:text-2xl" content="Mission & Vision" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="16vw" titleClassName="text-lg xl:text-2xl" content="Location" padding="0.5rem"/>
           </div>
           <div className="right-dropDown w-full flex justify-around">
             <ImageWrapper className="about-us-drop-down-image" />
@@ -182,10 +197,10 @@ const NavBar = () => (
       <DropDownWrapper id="academics" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-4">
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="400" content="Course" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" fontWeight="400" width="16vw" content="Faculty" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="Success Story" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="16vw" content="Academic" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" width="16vw" titleClassName="text-lg xl:text-2xl" fontWeight="400" content="Course" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" fontWeight="400" titleClassName="text-lg xl:text-2xl" width="16vw" content="Faculty" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" titleClassName="text-lg xl:text-2xl" width="16vw" content="Success Story" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" titleClassName="text-lg xl:text-2xl" width="16vw" content="Academic" padding="1rem"/>
           </div>
           <div className="right-dropDown w-full flex justify-around">
             <ImageWrapper className="about-us-drop-down-image" />
@@ -197,19 +212,19 @@ const NavBar = () => (
       <DropDownWrapper id="department" className="hide-drop-down">
         <div className="p-8  bg-grey-100 flex">
           <div className="left-dropDown mr-8">
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" width="16vw" fontWeight="600" content="B.Tech" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem 2rem 0 0" fontWeight="400" width="32vw" content="Department of Civil Engineering" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Computer Science & Engineering" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Electrical & Electronics Engineering" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Electrical & Communication Engineering" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Information Technology" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Mechanical Engineering" padding="1rem"/>
-            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="1rem 2rem 0 0" color="#0d266c" width="32vw" content="Department of Applied Science & Humanity" padding="1rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" width="16vw" fontWeight="600" titleClassName="text-lg xl:text-xl" content="B.Tech" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" fontWeight="400" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Civil Engineering" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Computer Science & Engineering" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Electrical & Electronics Engineering" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Electrical & Communication Engineering" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Information Technology" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Mechanical Engineering" padding="0.5rem"/>
+            <Headings font="Roboto-Regular" tag="h2" fontWeight="400" margin="0.8vw 1vw 0 0" color="#0d266c" width="32vw" titleClassName="text-sm xl:text-xl" content="Department of Applied Science & Humanity" padding="0.5rem"/>
           </div>
           <div className="right-dropDown px-8 w-full flex-col justify-between">
-            <div className="flex-col">
-              <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem auto" width="100%" fontWeight="600" content="Post Graduate" padding="1rem 0"/>
-              <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="1rem auto" width="100%" fontWeight="400" content="Department of Master of Business Administration" padding="1rem 0"/>
+            <div className="flex-col my-2">
+              <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0.8vw 1vw 0 0" width="100%" fontWeight="600" titleClassName="text-lg xl:text-xl" content="Post Graduate" padding="0.5rem 0"/>
+              <Headings font="Roboto-Regular" tag="h2" color="#0d266c" margin="0" width="100%" fontWeight="400" titleClassName="text-sm xl:text-xl" content="Department of Master of Business Administration" padding="0.5rem 0"/>
             </div>
             <div className="flex justify-around">
               <ImageWrapper className="about-us-drop-down-image" />

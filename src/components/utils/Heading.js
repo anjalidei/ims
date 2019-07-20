@@ -11,6 +11,7 @@ export default function Heading (props) {
     ${tw`container relative`}
     width: ${props.width};
     display: ${props.display};
+    
     &:after{
     position: absolute;
     top: ${props.underlineTop};
@@ -19,6 +20,12 @@ export default function Heading (props) {
     width: 70px;
     height: 2px;
     background-color: ${props.underlineColor};
+    }
+    
+    @media screen and (min-width: 320px) and (max-width:775px) { 
+    &:after{
+      top: ${props.mobileUnderlineTop ? props.mobileUnderlineTop : props.underlineTop};
+    }
     }
 
   `
@@ -66,7 +73,7 @@ Heading.defaultProps = {
   padding: '0 0 0 0',
   width: '',
   size: '',
-  font: 'Marion',
+  font: 'Raanana',
   margin: '0',
   fontWeight: 'bold',
   wrapperClassName: '',
