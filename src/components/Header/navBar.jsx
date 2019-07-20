@@ -134,7 +134,7 @@ const NavBar = () => (
   <>
     <Nav>
       <LogoWrapper>
-        <Link to="/Home" >
+        <Link to="/" >
           <ImageContainer src={logo} alt="logo" />
         </Link>
       </LogoWrapper>
