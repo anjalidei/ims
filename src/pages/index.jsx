@@ -10,7 +10,6 @@ import Home from './Home'
 export default class Index extends React.Component{
     constructor(props) {
         super(props);
-
     }
 
     componentDidMount() {
